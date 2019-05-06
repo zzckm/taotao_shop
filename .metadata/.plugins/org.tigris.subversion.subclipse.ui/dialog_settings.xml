@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="trunk" key="DirectorySelectionPage.lastParent_https://pc-20181227yjvu:8443/svn/aaa"/>
+	<item value="0" key="CommitDialog.location.y"/>
+	<item value="90" key="CommitDialog.location.x"/>
+	<item value="193" key="HistoryTableProvider.SVNHistoryPage.作者"/>
+	<item value="500" key="CommitDialog.weights.0"/>
+	<item value="484" key="HistoryTableProvider.SVNHistoryPage.注释"/>
+	<item value="500" key="CommitDialog.weights.1"/>
+	<item value="571" key="CommitDialog.size.y"/>
+	<item value="1186" key="CommitDialog.size.x"/>
+	<item value="243" key="HistoryTableProvider.SVNHistoryPage.日期"/>
+	<item value="497" key="ChooseUrlDialog.size.x"/>
+	<item value="376" key="ChooseUrlDialog.size.y"/>
+	<item value="https://pc-20181227yjvu:8443/svn/aaa" key="RepositorySelectionPage.lastRepository"/>
+	<item value="435" key="ChooseUrlDialog.location.x"/>
+	<item value="97" key="HistoryTableProvider.SVNHistoryPage.修订"/>
+	<item value="60" key="ChooseUrlDialog.location.y"/>
+	<section name="CommitWizard">
+		<item value="500" key="VWeight2"/>
+		<item value="500" key="VWeight1"/>
+		<item value="false" key="ShowCompare"/>
+	</section>
+	<section name="NewLocationWizard">
+		<list key="ConfigurationWizardMainPage.STORE_URL_ID">
+			<item value="https://PC-20181227YJVU:8443/svn/aaa/"/>
+			<item value=""/>
+		</list>
+	</section>
+</section>

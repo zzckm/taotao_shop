@@ -1,0 +1,19 @@
+package com.taotao.service.Impl;
+
+import com.taotao.pojo.TbItem;
+import com.taotao.service.ItemService;
+/**
+ * 商品管理
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月5日 下午11:26:06
+ */
+		
+public class ItemServiceImpl implements ItemService {
+
+	@Override
+	public TbItem getItemById(long itemId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

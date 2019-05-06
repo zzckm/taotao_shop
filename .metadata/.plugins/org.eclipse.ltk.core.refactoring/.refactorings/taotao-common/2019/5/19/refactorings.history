@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 source folders to &apos;taotao-manger-mapper&apos;&#x0D;&#x0A;- Original project: &apos;taotao-common&apos;&#x0D;&#x0A;- Destination element: &apos;taotao-manger-mapper&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     taotao-common/src/test/resources&#x0D;&#x0A;     taotao-common/src/test/java" description="Copy source folders" element1="/src\/test\/resources" element2="/src\/test\/java" flags="6" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyRoots" roots="2" stamp="1557072015253" target="/taotao-manger-mapper" version="1.0"/>
+</session>
