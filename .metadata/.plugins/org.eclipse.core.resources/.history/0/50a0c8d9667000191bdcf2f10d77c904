@@ -1,0 +1,54 @@
+/**
+ * 
+ */
+
+package com.taotao.service.Impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.taotao.common.pojo.EUDataGridResult;
+import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.mapper.TbItemParamMapper;
+import com.taotao.pojo.TbItem;
+import com.taotao.pojo.TbItemExample;
+import com.taotao.pojo.TbItemParam;
+import com.taotao.pojo.TbItemParamExample;
+import com.taotao.service.ItemParamService;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月7日 上午9:15:01 
+* 类说明 ：
+*/
+
+/** 
+* 
+*/
+
+public class ItemParamServiceImpl implements ItemParamService {
+	/**
+	 * 查询规格参数列表
+	 */
+	@Autowired
+	private TbItemParamMapper itemParamMapper;
+	@Override
+	public EUDataGridResult getItemList(Integer page, Integer rows) {
+		//查询商品列表
+		TbItemParamExample example = new TbItemParamExample();
+		//分页处理				  
+		PageHelper.startPage(page, rows);
+		List<TbItemParam> list = itemParamMapper.selectByExample(example);
+		//创建一个返回值对象
+		EUDataGridResult result = new EUDataGridResult();
+		result.setRows(list);
+		//取记录总条数
+		PageInfo<TbItemParam> pageInfo = new PageInfo<>(list);
+		result.setTotal(pageInfo.getTotal());				
+		return result;
+	}	
+
+}

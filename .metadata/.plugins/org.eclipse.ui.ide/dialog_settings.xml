@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="CleanDialogSettings">
+		<item value="500" key="DIALOG_WIDTH"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="416" key="DIALOG_HEIGHT"/>
+		<item value="2076" key="DIALOG_X_ORIGIN"/>
+		<item value="263" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="ExternalProjectImportWizard">
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="G:\workspaceSu001\taotao-manager\taotao-manger-web"/>
 			<item value="G:\workspaceSu001\taotao-parent"/>
 			<item value="G:\编程学习视频\第04项目：淘淘商城(SpringMvc+Spring+Mybatis) 推荐学习\02.第二天（框架整合，后台系统搭建）\01.参考资料\逆向工程\generatorSqlmapCustom"/>
 		</list>
@@ -16,5 +24,11 @@
 		<item value="" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
 		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
 		<item value="true" key="LINK_NAVIGATOR_TO_EDITOR"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.m2e.core.wizards.Maven2ProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.m2e"/>
+		</list>
 	</section>
 </section>

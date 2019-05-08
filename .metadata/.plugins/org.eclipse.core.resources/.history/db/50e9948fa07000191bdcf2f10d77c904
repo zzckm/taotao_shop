@@ -1,0 +1,25 @@
+/**
+ * 
+ */
+
+package com.taotao.portal.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月7日 下午3:35:46 
+* 类说明 :首页管理
+*/
+
+/** 
+* 
+*/
+@Controller
+public class IndexController {
+	@RequestMapping("/index")
+	public String showIndex() {
+		return "index";
+	}
+}

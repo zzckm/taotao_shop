@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+
+package com.taotao.portal.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.taotao.portal.service.ContentService;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月7日 下午3:35:46 
+* 类说明 :首页管理
+*/
+@Controller
+public class IndexController {
+	@RequestMapping("/index")
+	public String showIndex() {
+		return "index";
+	}
+	
+	//显示大广告内容
+	@Autowired
+	private ContentService contentService;
+	public String showIndex(Model model) {
+		//取大广告位的内容
+		String json = contentService.getAd1List();
+		//传递给页面
+		model.addAttribute("ad1", json);
+		
+		return "index";
+	}
+	
+	
+}
+ 

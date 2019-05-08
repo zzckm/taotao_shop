@@ -1,33 +1,69 @@
 package com.taotao.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.taotao.common.pojo.EUDataGridResult;
+import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.common.pojo.TreeNode;
 import com.taotao.pojo.TbItem;
+import com.taotao.service.ItemCatService;
 import com.taotao.service.ItemService;
 
-/** 
-
-* @author 作者 : 千客z
-
-* @version 创建时间：2019年5月5日 下午11:40:22 
-
-* 类说明 ： 商品管理Controller
-
-*/
+/**
+ * 
+ * @author 作者 : 千客z
+ * 
+ * @version 创建时间：2019年5月5日 下午11:40:22
+ * 
+ *          类说明 ： 商品管理Controller
+ * 
+ */
 
 @Controller
 public class ItemController {
 	@Autowired
 	private ItemService itemService;
-	
+
 	@RequestMapping("/item/{itemId}")
 	@ResponseBody
 	public TbItem getItemById(@PathVariable Long itemId) {
-		TbItem tbItem = itemService.getItemById(itemId);		
-		return tbItem; 
+		TbItem tbItem = itemService.getItemById(itemId);
+		return tbItem;
+	}
+
+	/*
+	 * 查询商品列表
+	 */
+	@RequestMapping("/item/list")
+	@ResponseBody
+	public EUDataGridResult getItemList(Integer page, Integer rows) {
+		EUDataGridResult result = itemService.getItemList(page, rows);
+		return result;
+	}
+	/*
+	 * 提交表单
+	 */
+	@RequestMapping(value="/item/save", method=RequestMethod.POST)
+	@ResponseBody
+	public TaotaoResult createItem(TbItem item, String desc,String itemParams) {
+		TaotaoResult result = itemService.createItem(item, desc,itemParams);
+		return result;
+	}
+	
+	//展示规格参数
+	@RequestMapping("/page/item/{itemId}")
+	public String showItemParam(@PathVariable Long itemId, Model model) {
+		String html = itemService.getItemParamHtml(itemId);
+		model.addAttribute("myhtml", html);
+		return "itemparam";
 	}
 }

@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+
+package com.taotao.portal.pojo;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月8日 下午4:54:36 
+* 类说明 ：
+*/
+
+/** 
+* 
+*/
+
+public class AdNode {
+	private int height;
+	private int width;
+	private String src;
+	private int heightB;
+	private int widthB;
+	private String srcB;
+	private String alt;
+	private String href;
+}

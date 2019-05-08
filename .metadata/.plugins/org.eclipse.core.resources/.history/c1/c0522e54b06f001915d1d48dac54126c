@@ -1,0 +1,39 @@
+/**
+ * 
+ */
+
+package com.taotao.controller;
+
+import org.springframework.stereotype.Controller;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月6日 上午11:37:14 
+* 类说明 ：
+*/
+
+/** 
+* 
+*/
+@Controller
+public class PageController {
+	/**
+	 * 打开首页
+	 */
+	@RequestMapping("/")
+	public String showIndex() {
+		return "index";
+	}
+	/**
+	 * 展示其他页面
+	 * <p>Title: showpage</p>
+	 * <p>Description: </p>
+	 * @param page
+	 * @return
+	 */
+	@RequestMapping("/{page}")
+	public String showpage(@PathVariable String page) {
+		return page;
+	}
+
+}

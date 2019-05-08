@@ -1,0 +1,37 @@
+/**
+ * 
+ */
+
+package com.taotao.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月6日 上午11:37:14 
+* 类说明 ： 首页展示
+*/
+
+@Controller
+public class PageController {
+	/**
+	 * 打开首页
+	 */
+	@RequestMapping("/")
+	public String showIndex() {
+		return "index";
+	}
+	
+	/**
+	 * 展示其他页面
+	 * 
+	 */
+	
+	@RequestMapping("/{page}")//@PathVariable 获取url/xxx 后面"/"的参数 而  RequestParam 获取url？xxx后面“？”的参数
+	public String showpage(@PathVariable String page) {
+		return page;
+	}
+
+}

@@ -1,0 +1,52 @@
+/**
+ * 
+ */
+
+package com.taotao.service.Impl;
+
+import com.taotao.common.pojo.EUDataGridResult;
+import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.pojo.TbItem;
+import com.taotao.pojo.TbItemParam;
+import com.taotao.service.ItemParamService;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月7日 上午9:15:01 
+* 类说明 ：
+*/
+
+/** 
+* 
+*/
+
+public class ItemParamServiceImpl implements ItemParamService {
+
+	/* (non-Javadoc)
+	 * @see com.taotao.service.ItemParamService#getItemById(long)
+	 */
+	@Override
+	public TbItem getItemById(long itemId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.taotao.service.ItemParamService#getItemList(java.lang.Integer, java.lang.Integer)
+	 */
+	@Override
+	public EUDataGridResult getItemList(Integer page, Integer rows) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.taotao.service.ItemParamService#createItem(com.taotao.pojo.TbItemParam)
+	 */
+	@Override
+	public TaotaoResult createItem(TbItemParam item) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+
+package com.taotao.service;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月8日 下午3:00:44 
+* 类说明 ：
+*/
+
+/** 
+* 
+*/
+
+public interface ContentService {
+
+}

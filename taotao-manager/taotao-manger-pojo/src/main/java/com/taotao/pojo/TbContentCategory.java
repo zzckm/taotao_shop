@@ -3,27 +3,20 @@ package com.taotao.pojo;
 import java.util.Date;
 
 public class TbContentCategory {
-    private Long id;
-
+    private long id;
     private Long parentId;
-
     private String name;
-
     private Integer status;
-
     private Integer sortOrder;
-
     private Boolean isParent;
-
     private Date created;
-
     private Date updated;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

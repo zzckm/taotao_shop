@@ -7,6 +7,9 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="taotao-portal"/>
+			<item value="taotao-parent"/>
+			<item value="taotao-rest"/>
 			<item value="taotao-manger-web"/>
 			<item value="taotao-manager"/>
 		</list>
@@ -65,6 +68,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="G:\workspaceSu001\taotao-rest"/>
 			<item value="G:\workspaceSu001\tao_manager\pom.xml"/>
 			<item value="G:\workspaceSu001\tao_common"/>
 			<item value="G:\workspaceSu001\tao_manager"/>
@@ -85,13 +89,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="org.taotao.manger.web"/>
 		</list>
 		<list key="groupId">
-			<item value="com.taotao"/>
 		</list>
 		<list key="artifactId">
-			<item value="taotao-manger-web"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

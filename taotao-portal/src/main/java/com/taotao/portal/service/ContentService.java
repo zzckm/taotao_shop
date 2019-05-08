@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+
+package com.taotao.portal.service;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月8日 下午4:55:52 
+* 类说明 ：
+*/
+
+public interface ContentService {
+	public String getAd1List();
+}

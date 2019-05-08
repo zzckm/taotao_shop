@@ -1,0 +1,36 @@
+/**
+ * 
+ */
+
+package com.taotao.service.Impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.taotao.common.pojo.TreeNode;
+import com.taotao.mapper.TbContentCategoryMapper;
+import com.taotao.service.ContentCategoryService;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月8日 上午9:18:41 
+* 类说明 ：
+*/
+
+/** 
+* 
+*/
+@Service
+public class ContentCategoryServiceImpl implements ContentCategoryService {
+	@Autowired
+	private TbContentCategoryMapper contentCategoryMapper;
+	@Override
+	public List<TreeNode> getCategoryList(long parentId) {
+		
+		
+		return null;
+	}
+
+}

@@ -103,6 +103,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.taotao.pojo.TbContentCategory" >
+  <!-- 在事务隔离中的最后一次获取ID -->
+  <selectKey keyProperty="id" order="AFTER" resultType="long">
+  	select last_insert_id();
+  </selectKey>
     insert into tb_content_category (id, parent_id, name, 
       status, sort_order, is_parent, 
       created, updated)
