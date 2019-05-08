@@ -6,6 +6,7 @@ package com.taotao.rest.service;
 
 import java.util.List;
 
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.pojo.TbContent;
 
 /** 
@@ -14,10 +15,7 @@ import com.taotao.pojo.TbContent;
 * 类说明 ：
 */
 
-/** 
-* 
-*/
-
 public interface ContentService {
 	public List<TbContent> getContentList(Long cid);
+	public TaotaoResult syncContent(Long cid);
 }

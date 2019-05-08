@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+
+package com.taotao.rest.component.impl;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月8日 下午9:35:30 
+* 类说明 ：
+*/
+
+/** 
+* 
+*/
+
+public class JedisClientSingle {
+
+}

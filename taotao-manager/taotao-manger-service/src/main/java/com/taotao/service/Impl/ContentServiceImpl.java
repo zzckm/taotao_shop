@@ -29,7 +29,8 @@ public class ContentServiceImpl implements ContentService {
 		content.setCreated(new Date());
 		content.setUpdated(new Date());
 		//插入数据
-		contentMapper.insert(content);		
+		contentMapper.insert(content);
+		
 		return TaotaoResult.ok();
 	}
 }

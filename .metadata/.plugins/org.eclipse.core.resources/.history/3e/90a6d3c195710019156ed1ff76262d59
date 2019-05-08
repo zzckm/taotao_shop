@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+
+package com.taotao.rest.component;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月8日 下午9:27:56 
+* 类说明 ：
+*/
+
+/** 
+* 
+*/
+
+public interface JedisClient {
+	public String set(String key, String value);
+	public String get(String key);
+	//
+	public Long hset(String key, String item, String value);
+	//
+	public String hget(String key, String item);
+	//
+	public Long incr(String key);
+	//
+	public Long decr(String key);
+	//
+	public Long expire(String key, int second);
+	//
+	public Long ttl(String key);
+}

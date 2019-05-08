@@ -1,0 +1,68 @@
+/**
+ * 
+ */
+
+package com.taotao.rest.service.impl;
+
+import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.taotao.common.utils.JsonUtils;
+import com.taotao.mapper.TbContentMapper;
+import com.taotao.pojo.TbContent;
+import com.taotao.pojo.TbContentExample;
+import com.taotao.pojo.TbContentExample.Criteria;
+import com.taotao.rest.component.JedisClient;
+import com.taotao.rest.service.ContentService;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月8日 下午4:40:10 
+* 类说明 ：
+*/
+
+@Service
+public class ContentServiceImpl implements ContentService {
+	@Autowired
+	private TbContentMapper contentMapper;
+	@Autowired
+	private JedisClient jedisClient;
+	@Override
+	public List<TbContent> getContentList(Long cid) {
+		//添加缓存（为了以防redis 查询出错而导致影响程序的运行，因此只需要加个 try catch就可以不影响查询数据库的操作 了）
+		//查询数据库之前先查询缓存，如果有就直接返回，没有再访问数据库
+		try {
+			//从redis中取缓存数据
+			String json = jedisClient.hget(REDIS_CONTENT_KEY, cid+"");
+			if (!StringUtils.isBlank(json)) {
+				//把json转换成List
+				List<TbContent> list = JsonUtils.jsonToList(json, TbContent.class);
+				return list;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//----------------------数据库查询--------------------------------------
+		// 根据cid查询内容列表
+		TbContentExample example = new TbContentExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andCategoryIdEqualTo(cid);
+		//执行查询
+		List<TbContent> list = contentMapper.selectByExampleWithBLOBs(example);
+		//----------------------数据库查询--------------------------------------
+		
+		//返回结果之前，先将数据保存在redis中
+		try {
+			//为了规范key可以使用hash  （使得key占字节数基本相同 为了规范书写）
+			//定义一个保存内容的key，hash中每个项就是cid
+			//value是list，需要把list转换成json数据。（redis里面不能直接存list集合，redis只能存储Json数据）
+			jedisClient.hset(REDIS_CONTENT_KEY, cid+"", JsonUtils.objectToJson(list));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+}

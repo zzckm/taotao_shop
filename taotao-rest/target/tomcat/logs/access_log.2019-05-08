@@ -1,4 +1,5 @@
-127.0.0.1 - - [08/May/2019:17:20:20 +0800] "GET /rest/content/89 HTTP/1.1" 200 704 http-bio-8081-exec-1 1272
-0:0:0:0:0:0:0:1 - - [08/May/2019:17:20:25 +0800] "GET /rest/item/cat/list?callback=category.getDataService HTTP/1.1" 200 30450 http-bio-8081-exec-3 721
-127.0.0.1 - - [08/May/2019:17:21:08 +0800] "GET /rest/content/89 HTTP/1.1" 200 704 http-bio-8081-exec-5 14
-0:0:0:0:0:0:0:1 - - [08/May/2019:17:22:16 +0800] "GET /rest/item/cat/list?callback=category.getDataService HTTP/1.1" 200 30450 http-bio-8081-exec-7 375
+127.0.0.1 - - [08/May/2019:22:55:44 +0800] "GET /rest/content/89 HTTP/1.1" 200 1326 http-bio-8081-exec-2 1112
+127.0.0.1 - - [08/May/2019:22:55:46 +0800] "GET /rest/content/89 HTTP/1.1" 200 1326 http-bio-8081-exec-4 161
+127.0.0.1 - - [08/May/2019:22:56:30 +0800] "GET /rest/sync/content/89 HTTP/1.1" 200 58 http-bio-8081-exec-7 10
+127.0.0.1 - - [08/May/2019:22:56:43 +0800] "GET /rest/content/89 HTTP/1.1" 200 1640 http-bio-8081-exec-9 26
+0:0:0:0:0:0:0:1 - - [08/May/2019:22:56:45 +0800] "GET /rest/item/cat/list?callback=category.getDataService HTTP/1.1" 200 30450 http-bio-8081-exec-2 908

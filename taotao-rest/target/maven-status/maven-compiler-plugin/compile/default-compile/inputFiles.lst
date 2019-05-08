@@ -1,8 +1,10 @@
 G:\workspaceSu001\taotao-rest\src\main\java\com\taotao\rest\service\impl\ContentServiceImpl.java
 G:\workspaceSu001\taotao-rest\src\main\java\com\taotao\rest\service\ContentService.java
 G:\workspaceSu001\taotao-rest\src\main\java\com\taotao\rest\pojo\CatNode.java
+G:\workspaceSu001\taotao-rest\src\main\java\com\taotao\rest\component\JedisClient.java
 G:\workspaceSu001\taotao-rest\src\main\java\com\taotao\rest\pojo\ItemCatResult.java
 G:\workspaceSu001\taotao-rest\src\main\java\com\taotao\rest\service\ItemCatService.java
+G:\workspaceSu001\taotao-rest\src\main\java\com\taotao\rest\component\impl\JedisClientSingle.java
 G:\workspaceSu001\taotao-rest\src\main\java\com\taotao\rest\service\impl\ItemCatServiceImpl.java
 G:\workspaceSu001\taotao-rest\src\main\java\com\taotao\rest\controller\ItemCatController.java
 G:\workspaceSu001\taotao-rest\src\main\java\com\taotao\rest\controller\ContentController.java

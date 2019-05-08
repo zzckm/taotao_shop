@@ -20,7 +20,7 @@ import com.taotao.rest.service.ContentService;
 /** 
 * @author 作者 : 千客z
 * @version 创建时间：2019年5月8日 下午4:41:55 
-* 类说明 ：
+* 类说明 ：广告
 */
 
 /** 
@@ -37,6 +37,18 @@ public class ContentController {
 		try {
 			List<TbContent> list = contentService.getContentList(cid);
 			return TaotaoResult.ok(list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+		}
+	}
+	//rest发布服务,后台数据发生修改的话，就 删除缓存对应数据
+	@RequestMapping("/sync/content/{cid}")
+	@ResponseBody
+	public TaotaoResult sysncContent(@PathVariable Long cid) {
+		try {
+			TaotaoResult result = contentService.syncContent(cid);
+			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
