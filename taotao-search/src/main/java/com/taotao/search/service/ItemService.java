@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+
+package com.taotao.search.service;
+
+import org.apache.solr.client.solrj.SolrQuery;
+
+import com.taotao.common.pojo.TaotaoResult;
+
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月9日 上午11:06:14 
+* 类说明 ：
+*/
+
+public interface ItemService {
+	public TaotaoResult importItems() throws Exception;
+	
+}

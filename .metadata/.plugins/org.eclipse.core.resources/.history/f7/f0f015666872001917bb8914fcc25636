@@ -1,0 +1,39 @@
+/**
+ * 
+ */
+
+package com.taotao.rest.controller;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月9日 下午10:39:37 
+* 类说明 ：查询商品的基本信息
+*/
+
+/** 
+* 
+*/
+
+public class ItemController {
+	@Autowired
+	private ItemService itemService;
+	
+	/**
+	 * 查询商品基本信息
+	 * <p>Title: getItemById</p>
+	 * <p>Description: </p>
+	 * @param itemId
+	 * @return
+	 */
+	@RequestMapping("/base/{itemId}")
+	@ResponseBody
+	public TaotaoResult getItemById(@PathVariable Long itemId) {
+		try {
+			TbItem item = itemService.getItemById(itemId);
+			return TaotaoResult.ok(item);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+		}
+	}
+}

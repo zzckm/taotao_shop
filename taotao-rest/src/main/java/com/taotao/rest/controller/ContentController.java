@@ -35,6 +35,7 @@ public class ContentController {
 	@ResponseBody
 	public TaotaoResult getContentList(@PathVariable Long cid) {
 		try {
+			System.out.println(cid);
 			List<TbContent> list = contentService.getContentList(cid);
 			return TaotaoResult.ok(list);
 		} catch (Exception e) {

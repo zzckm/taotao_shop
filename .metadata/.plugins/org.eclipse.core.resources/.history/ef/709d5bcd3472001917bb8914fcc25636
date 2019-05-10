@@ -1,0 +1,11 @@
+#\\u8BF7\u95EE\u5343\u4E07
+#IMAGE_SERVER_BASE_URL=http://47.103.19.171/
+#服务层基础url
+REST_BASE_URL=http://localhost:8081/rest
+#内容查询url
+REST_CONTENT_URL=/content/
+#取打广告为的内容cid
+REST_CONTENT_AD1_CID=89
+
+#全文检索的索引库读取的获取的相关内容
+SEARCH_BASE_URL=http://localhost:8081/search/q

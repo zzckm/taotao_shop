@@ -1,0 +1,39 @@
+/**
+ * 
+ */
+
+package com.taotao.search.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.common.utils.ExceptionUtil;
+import com.taotao.search.service.ItemService;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月9日 上午11:10:31 
+* 类说明 ：solr索引库导入
+*/
+
+
+@Controller
+public class ItemController {
+	@Autowired
+	private ItemService itemService;
+	//将需要导入到solr索引库的数据，从数据库读取出来 --- 以文档的类型导入索引库
+	@RequestMapping("/importall")
+	@ResponseBody
+	public TaotaoResult importAll() {
+		try {
+			TaotaoResult result = itemService.importItems();
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+		}
+	}
+}

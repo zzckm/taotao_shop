@@ -17,7 +17,7 @@ import com.taotao.rest.service.ItemCatService;
 /** 
 * @author 作者 : 千客z
 * @version 创建时间：2019年5月7日 下午9:28:42 
-* 类说明 ：商品类目
+* 类说明 ：商品类目展示
 */
 @Controller
 @RequestMapping("/item/cat")

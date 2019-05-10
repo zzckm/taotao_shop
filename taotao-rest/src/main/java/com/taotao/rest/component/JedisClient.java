@@ -21,7 +21,7 @@ public interface JedisClient {
 	public Long incr(String key);
 	//减-1
 	public Long decr(String key);
-	//设置过期时间  -2 已经没有了  -1永久保存 
+	//设置过期时间  -2 已经没有了  -1永久保存   过期时间 只能针对于key value类型的进行使用， 对于哈希，key,vlaue的不能使用过期时间
 	public Long expire(String key, int second);
 	//查看该数据状态
 	public Long ttl(String key);

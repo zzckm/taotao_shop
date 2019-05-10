@@ -1,0 +1,145 @@
+/**
+ * 
+ */
+
+package com.taotao.service.Impl;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.taotao.common.pojo.EUDataGridResult;
+import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.common.pojo.TreeNode;
+import com.taotao.mapper.TbContentCategoryMapper;
+import com.taotao.pojo.TbContentCategory;
+import com.taotao.pojo.TbContentCategoryExample;
+import com.taotao.pojo.TbItemCat;
+import com.taotao.pojo.TbItemCatExample;
+import com.taotao.pojo.TbContentCategoryExample.Criteria;
+import com.taotao.service.ContentCategoryService;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月8日 上午9:18:41 
+* 类说明 ：
+*/
+
+/** 
+* 
+*/
+@Service
+public class ContentCategoryServiceImpl implements ContentCategoryService {
+	@Autowired
+	private TbContentCategoryMapper contentCategoryMapper;
+	
+	@Override
+	public List<TreeNode> getContentCatList(Long parentId) {
+		//根据parentId查询子节点列表
+		TbContentCategoryExample example = new TbContentCategoryExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andParentIdEqualTo(parentId);
+		//执行查询
+		List<TbContentCategory> list = contentCategoryMapper.selectByExample(example);
+		//转换成EasyUITreeNode列表
+		List<TreeNode> resultList = new ArrayList<>();
+		for (TbContentCategory tbContentCategory : list) {
+			//创建一EasyUITreeNode节点
+			TreeNode node =new TreeNode(tbContentCategory.getId(),tbContentCategory.getName(),tbContentCategory.getIsParent()?"closed":"open");
+			/*
+			 * node.setId(tbContentCategory.getId());
+			 * node.setText(tbContentCategory.getName());
+			 * node.setState((tbContentCategory.getIsParent()?"closed":"open").toString());
+			 */
+			//添加到列表
+			resultList.add(node);
+		}
+		return resultList;
+	}
+//添加节点
+	@Override
+	public TaotaoResult insertCatgory(Long parentId, String name) {
+		//创建一个pojo对象
+		TbContentCategory contentCategory = new TbContentCategory();
+		contentCategory.setName(name);
+		contentCategory.setParentId(parentId);
+		//1(正常),2(删除)
+		contentCategory.setStatus(1);
+		contentCategory.setIsParent(false);
+		//'排列序号，表示同级类目的展现次序，如数值相等则按名称次序排列。取值范围:大于零的整数'
+		contentCategory.setSortOrder(1);
+		contentCategory.setCreated(new Date());
+		contentCategory.setUpdated(new Date());
+		//插入数据
+		contentCategoryMapper.insert(contentCategory);
+		//取返回的主键
+		Long id = contentCategory.getId();
+		//判断父节点的isparent属性
+		//查询父节点
+		TbContentCategory parentNode = contentCategoryMapper.selectByPrimaryKey(parentId);
+		if (!parentNode.getIsParent()) {
+			parentNode.setIsParent(true);
+			//更新父节点
+			contentCategoryMapper.updateByPrimaryKey(parentNode);
+		}
+		//返回主键
+		return TaotaoResult.ok(id);
+	}
+	//修改节点名称
+	@Override
+	public TaotaoResult updateCatgory(Long id, String name) {
+		//创建一个pojo对象
+		TbContentCategory contentCategory = new TbContentCategory();
+		contentCategory.setName(name);
+		contentCategory.setId(id);
+		contentCategory.setSortOrder(1);
+		contentCategory.setUpdated(new Date());
+		//修改数据
+		contentCategoryMapper.updateByPrimaryKeySelective(contentCategory);
+		//返回主键
+		return TaotaoResult.ok(id);
+	}
+	//删除节点
+	@Override
+	public TaotaoResult deleteCatgory(Long parentId, Long id) {
+		//根据id查询数据
+		//TbContentCategory contentCategory = contentCategoryMapper.selectByPrimaryKey(id);		
+		//取返回的parentId
+		//parentId = contentCategory.getParentId();
+		//递归删除
+		xxx(id);		
+		//返回主键
+		return TaotaoResult.ok(id);
+	}
+	//递归删除
+	public void xxx(Long id) {
+		TbContentCategoryExample example = new TbContentCategoryExample();
+		//申明一个条件容纳容器
+		Criteria criteria = example.createCriteria();
+		//插入条件数据
+		criteria.andParentIdEqualTo(id);
+		contentCategoryMapper.deleteByPrimaryKey(id);
+		List<TbContentCategory> list=contentCategoryMapper.selectByExample(example);
+		for(TbContentCategory tbCategory:list) {
+			if(tbCategory.getIsParent()) {
+				contentCategoryMapper.deleteByPrimaryKey(tbCategory.getId());
+				xxx(tbCategory.getId());
+				contentCategoryMapper.deleteByPrimaryKey(tbCategory.getId());
+			}
+			else {
+				contentCategoryMapper.deleteByPrimaryKey(tbCategory.getId());
+			}
+		}
+		
+	}
+	//分页查询广告内容
+	@Override
+	public EUDataGridResult getItemList(Integer page, Integer rows, long categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

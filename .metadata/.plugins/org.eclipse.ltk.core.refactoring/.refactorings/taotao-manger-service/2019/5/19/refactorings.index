@@ -2,3 +2,5 @@
 1557071641974	Delete element
 1557071643442	Delete element
 1557296363900	Extract local variable 'selectByPrimaryKey'
+1557373725538	Extract local variable 'createCriteria'
+1557373962263	Extract local variable 'createCriteria'

@@ -1,4 +1,4 @@
-/**
+ /**
  * 
  */
 
@@ -22,7 +22,7 @@ public class IndexController {
 
 	@RequestMapping("/index")
 	public String showIndex(Model model) {
-		// 取大广告位的内容
+		// 获取大广告位的内容
 		String json = contentService.getAd1List();
 		// 传递给页面
 		model.addAttribute("ad1", json);

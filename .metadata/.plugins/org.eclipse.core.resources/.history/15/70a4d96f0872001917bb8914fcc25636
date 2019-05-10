@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+
+package com.taotao.search.controller;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月9日 上午11:10:31 
+* 类说明 ：solr索引库
+*/
+
+
+@Controller
+public class ItemController {
+	@Autowired
+	private ItemService itemService;
+	
+	@RequestMapping("/importall")
+	@ResponseBody
+	public TaotaoResult importAll() {
+		try {
+			TaotaoResult result = itemService.importItems();
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+		}
+	}
+}

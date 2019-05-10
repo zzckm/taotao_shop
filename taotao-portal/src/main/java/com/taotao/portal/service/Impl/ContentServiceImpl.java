@@ -35,9 +35,9 @@ public class ContentServiceImpl implements ContentService {
 	private String REST_CONTENT_AD1_CID;
 	@Override
 	public String getAd1List() {
-		//调用服务获得数据
+		//调用rest服务获得数据
 		String json = HttpClientUtil.doGet(REST_BASE_URL + REST_CONTENT_URL + REST_CONTENT_AD1_CID);
-		//把json转换成java对象
+		//把json转换成TbContent对象
 		TaotaoResult taotaoResult = TaotaoResult.formatToList(json, TbContent.class);
 		//取data属性，内容列表
 		List<TbContent> contentList = (List<TbContent>) taotaoResult.getData();

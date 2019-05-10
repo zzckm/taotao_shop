@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+
+package com.taotao.portal.service;
+
+import com.taotao.pojo.TbItem;
+
+/** 
+* @author 作者 : 千客z
+* @version 创建时间：2019年5月9日 下午11:28:11 
+* 类说明 ：展示商品信息
+*/
+
+public interface ItemService {
+	public TbItem getItemById(Long itemId);
+	
+	public String getItemDescById(Long itemId);
+	
+	public String getItemParamById(Long itemId)
+}

@@ -15,3 +15,6 @@
 1557221083371	Delete element
 1557305832455	Move compilation unit
 1557306559315	Extract local variable 'ad1List'
+1557416400477	Extract local variable 'itemById'
+1557459012542	Extract local variable 'split'
+1557460290094	Extract local variable 'decode'
